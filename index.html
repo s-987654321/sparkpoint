@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparkPoint | Professional Commercial Cleaning Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            position: relative;
+        }
+        .hero-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12;
+            mix-blend-mode: overlay;
+        }
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.1);
+            border-color: #3b82f6;
+        }
+        .booking-step {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .hidden-step {
+            display: none;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        .active-step {
+            display: block;
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .whatsapp-widget {
+            animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes bounce-in {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        /* Submit Button States */
+        .btn-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+            filter: grayscale(1);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg ring-4 ring-blue-50">
+                        <i class="fas fa-hand-sparkles text-lg"></i>
+                    </div>
+                    <span class="text-2xl font-black tracking-tighter text-slate-900">SPARKPOINT</span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-10 text-xs font-bold uppercase tracking-[0.2em] text-slate-600">
+                    <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
+                    <a href="#booking" class="hover:text-blue-600 transition-colors">Contact Us</a>
+                    <a href="#booking" class="bg-blue-600 text-white px-8 py-3.5 rounded-xl hover:bg-blue-700 transition shadow-xl shadow-blue-200 active:scale-95">Book Quote</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-36 px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 px-6 py-2 rounded-full mb-10 backdrop-blur-md">
+                <span class="w-2 h-2 bg-blue-400 rounded-full animate-ping"></span>
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-blue-200">Excellence in Every Sweep</span>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 leading-[1.1] tracking-tight">
+                Elite Hygiene for <br/><span class="text-blue-400">Industry Leaders.</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-slate-300 mb-14 max-w-3xl mx-auto font-light leading-relaxed">
+                Precision-engineered cleaning workflows designed to enhance productivity and safety in your commercial environment.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#booking" class="bg-blue-600 hover:bg-blue-500 px-14 py-5 rounded-2xl font-bold text-lg transition-all shadow-2xl flex items-center justify-center gap-3 group">
+                    Book Service <i class="fas fa-calendar-alt group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#services" class="bg-white/5 hover:bg-white/10 border border-white/20 px-14 py-5 rounded-2xl font-bold text-lg transition-all backdrop-blur-lg">Our Expertise</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-32 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24">
+                <h2 class="text-blue-600 font-bold uppercase tracking-[0.5em] text-[10px] mb-4">Core Competencies</h2>
+                <h3 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tight">Specialized Sectors</h3>
+                <div class="w-20 h-1.5 bg-blue-600 mx-auto mt-8 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="service-card bg-white p-12 rounded-[3rem] border border-slate-100 flex flex-col items-start group">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fas fa-industry text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4">Commercial Cleaning</h4>
+                    <p class="text-slate-500 text-base leading-relaxed mb-6">Bespoke sanitation strategies for enterprises, scaling from routine maintenance to comprehensive deep sterilization across all business sizes.</p>
+                </div>
+                <div class="service-card bg-white p-12 rounded-[3rem] border border-slate-100 flex flex-col items-start group">
+                    <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                        <i class="fas fa-laptop-house text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4">Office Cleaning</h4>
+                    <p class="text-slate-500 text-base leading-relaxed mb-6">Promote workplace wellness and productivity with expert organization and high-frequency touchpoint sanitization for corporate environments.</p>
+                </div>
+                <div class="service-card bg-white p-12 rounded-[3rem] border border-slate-100 flex flex-col items-start group">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                        <i class="fas fa-chalkboard-teacher text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4">School Cleaning</h4>
+                    <p class="text-slate-500 text-base leading-relaxed mb-6">Advanced germ-control protocols for educational facilities, ensuring classrooms and communal halls remain safe for staff and students.</p>
+                </div>
+                <div class="service-card bg-white p-12 rounded-[3rem] border border-slate-100 flex flex-col items-start group">
+                    <div class="w-16 h-16 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-rose-600 group-hover:text-white transition-all">
+                        <i class="fas fa-heartbeat text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4">Aged Care Cleaning</h4>
+                    <p class="text-slate-500 text-base leading-relaxed mb-6">Gentle, high-standard cleaning to support health and comfort in aged care facilities, adhering to strict clinical standards.</p>
+                </div>
+                <div class="service-card bg-white p-12 rounded-[3rem] border border-slate-100 flex flex-col items-start group">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                        <i class="fas fa-shopping-bag text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4">Retail Cleaning</h4>
+                    <p class="text-slate-500 text-base leading-relaxed mb-6">Present a polished and inviting space to customers with reliable shop and showroom cleaning tailored to your opening hours.</p>
+                </div>
+                <div class="service-card bg-white p-12 rounded-[3rem] border border-slate-100 flex flex-col items-start group">
+                    <div class="w-16 h-16 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-orange-600 group-hover:text-white transition-all">
+                        <i class="fas fa-warehouse text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4">Industrial Cleaning</h4>
+                    <p class="text-slate-500 text-base leading-relaxed mb-6">Tough cleaning solutions for warehouses, factories, and industrial sites, including grease removal and high-pressure washing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Booking Interface -->
+    <section id="booking" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+                
+                <!-- Left: Branding/Info -->
+                <div class="lg:w-5/12 sticky top-32">
+                    <h2 class="text-blue-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-4">Booking Gateway</h2>
+                    <h3 class="text-5xl font-black mb-8 tracking-tight">Ready to Sparkle?</h3>
+                    <p class="text-slate-500 text-lg leading-relaxed mb-10 font-light">
+                        Submit your requirements and our officials will provide a bespoke quotation tailored to your facility's needs.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-5 p-6 rounded-[2rem] bg-slate-50 border border-slate-100">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h5 class="font-bold text-slate-800">Support Line</h5>
+                                <p class="text-sm text-slate-500">+61 (02) 8000 0000</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5 p-6 rounded-[2rem] bg-slate-50 border border-slate-100">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h5 class="font-bold text-slate-800">Direct Email</h5>
+                                <p class="text-sm text-slate-500">contact@sparkpoint.com.au</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Multi-Step Form -->
+                <div class="lg:w-7/12 w-full">
+                    <div class="bg-slate-900 rounded-[3rem] p-10 md:p-14 text-white shadow-3xl shadow-blue-900/20">
+                        <!-- Progress Indicator -->
+                        <div class="flex justify-between items-center mb-12">
+                            <div id="prog-1" class="h-2 flex-1 rounded-full bg-blue-600 transition-all duration-500"></div>
+                            <div class="w-4"></div>
+                            <div id="prog-2" class="h-2 flex-1 rounded-full bg-white/10 transition-all duration-500"></div>
+                        </div>
+
+                        <!-- Form Steps -->
+                        <div id="step-1" class="booking-step active-step">
+                            <h4 class="text-3xl font-black mb-8">Basic Contact Info</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Full Name*</label>
+                                    <input type="text" id="clientName" oninput="validateForm()" placeholder="Your Name" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 transition">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Email Address*</label>
+                                    <input type="email" id="clientEmail" oninput="validateForm()" placeholder="email@company.com" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 transition">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Contact Number</label>
+                                    <input type="number" id="clientPhone" placeholder="0400000000" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 transition [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Zip Code</label>
+                                    <input type="number" id="clientZip" placeholder="e.g. 2000" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 transition [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                                </div>
+                                <div class="space-y-2 md:col-span-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Full Site Address*</label>
+                                    <input type="text" id="clientAddress" oninput="validateForm()" placeholder="Suite 1, Level 2, 123 Example St, Sydney NSW" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 transition">
+                                </div>
+                            </div>
+                            <button onclick="nextStep(2)" id="btnStep1" class="btn-disabled w-full py-5 bg-blue-600 rounded-2xl font-black uppercase tracking-widest text-sm transition shadow-lg shadow-blue-600/20">Continue to Service Info</button>
+                            <p class="text-[9px] text-slate-500 mt-4 uppercase tracking-widest text-center">* Required fields to continue</p>
+                        </div>
+
+                        <div id="step-2" class="booking-step hidden-step">
+                            <h4 class="text-3xl font-black mb-8">Service Requirements</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Select Category*</label>
+                                    <select id="clientService" onchange="validateForm()" class="w-full bg-slate-800 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 transition appearance-none">
+                                        <option value="">-- Choose One --</option>
+                                        <option value="Commercial Cleaning">Commercial Cleaning</option>
+                                        <option value="Office Cleaning">Office Cleaning</option>
+                                        <option value="School Cleaning">School Cleaning</option>
+                                        <option value="Aged Care Cleaning">Aged Care Cleaning</option>
+                                        <option value="Retail Cleaning">Retail Cleaning</option>
+                                        <option value="Strata Cleaning">Strata Cleaning</option>
+                                        <option value="Industrial Cleaning">Industrial Cleaning</option>
+                                        <option value="Child Care Cleaning">Child Care Cleaning</option>
+                                        <option value="Commercial Carpet Cleaning">Commercial Carpet Cleaning</option>
+                                    </select>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Site Size (sq.m)</label>
+                                    <input type="number" id="siteSize" placeholder="e.g. 500" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 transition [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                                </div>
+                                <div class="space-y-2 md:col-span-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Cleaning Frequency</label>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                        <button onclick="setFreq('Daily')" class="freq-btn p-4 rounded-xl border border-white/10 bg-white/5 text-xs font-bold hover:bg-blue-600 transition">Daily</button>
+                                        <button onclick="setFreq('Weekly')" class="freq-btn p-4 rounded-xl border border-white/10 bg-white/5 text-xs font-bold hover:bg-blue-600 transition">Weekly</button>
+                                        <button onclick="setFreq('Once')" class="freq-btn p-4 rounded-xl border border-white/10 bg-white/5 text-xs font-bold hover:bg-blue-600 transition">Once-off</button>
+                                        <button onclick="setFreq('Other')" class="freq-btn p-4 rounded-xl border border-white/10 bg-white/5 text-xs font-bold hover:bg-blue-600 transition">Other</button>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 md:col-span-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Additional Instructions</label>
+                                    <textarea id="clientNotes" rows="3" placeholder="Specific requirements or access details?" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 transition"></textarea>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <button onclick="nextStep(1)" class="w-1/3 py-5 bg-white/5 rounded-2xl font-bold text-slate-400">Back</button>
+                                <div class="w-2/3 grid grid-cols-2 gap-3">
+                                    <button id="submitWA" onclick="submitBooking('whatsapp')" class="btn-disabled py-5 bg-green-600 rounded-2xl font-black text-xs transition flex items-center justify-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                                    <button id="submitEmail" onclick="submitBooking('gmail')" class="btn-disabled py-5 bg-blue-600 rounded-2xl font-black text-xs transition flex items-center justify-center gap-2"><i class="fas fa-envelope"></i> Email</button>
+                                </div>
+                            </div>
+                            <p class="text-[9px] text-slate-500 mt-4 uppercase tracking-widest text-center">Service Category is required to submit</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 py-24 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-10">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-lg">
+                    <i class="fas fa-hand-sparkles"></i>
+                </div>
+                <span class="text-2xl font-black tracking-tighter text-blue-900">SPARKPOINT</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-10 mb-12 text-[11px] font-extrabold uppercase tracking-[0.3em] text-slate-500">
+                <a href="#services" class="hover:text-blue-600 transition">Services</a>
+                <a href="#booking" class="hover:text-blue-600 transition">Contact Us</a>
+                <a href="#" class="hover:text-blue-600 transition">Privacy Policy</a>
+                <a href="#" class="hover:text-blue-600 transition">WHS Compliance</a>
+            </div>
+            <p class="text-slate-400 text-xs font-medium uppercase tracking-widest">© 2024 SPARKPOINT FACILITY SERVICES PTY LTD. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- Chat Us / WhatsApp Widget -->
+    <div id="whatsappWidget" class="whatsapp-widget fixed bottom-8 right-8 z-50 flex flex-col items-end gap-2 group">
+        <!-- Close Button -->
+        <button onclick="dismissWidget()" class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] shadow-lg hover:bg-rose-600 transition-colors">
+            <i class="fas fa-times"></i>
+        </button>
+        <!-- Chat Bubble -->
+        <a id="waLink" href="#" target="_blank" class="bg-green-500 text-white p-5 rounded-full shadow-2xl flex items-center justify-center border-4 border-white transition-all hover:scale-110 active:scale-90 relative">
+            <div class="absolute -top-12 right-0 bg-slate-900 text-white px-5 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap shadow-xl">
+                Chat Us
+            </div>
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div id="modalOverlay" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[100] hidden items-center justify-center p-4">
+        <div class="bg-white rounded-[3rem] p-12 max-sm w-full text-center shadow-3xl scale-95 transition-all duration-300">
+            <div class="w-24 h-24 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl">
+                <i class="fas fa-paper-plane"></i>
+            </div>
+            <h4 class="text-3xl font-black mb-4 text-slate-900">Request Sent</h4>
+            <p id="modalMsg" class="text-slate-500 text-sm mb-10 leading-relaxed font-light"></p>
+            <button onclick="closeModal()" class="w-full bg-slate-900 text-white py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-slate-800 transition shadow-xl">Done</button>
+        </div>
+    </div>
+
+    <script>
+        const CONFIG = {
+            email: "bhattaraisahitya@gmail.com",
+            phone: "9779800000000",
+            brand: "SparkPoint Commercial Australia",
+            selectedFreq: "Daily"
+        };
+
+        // Initialize WhatsApp Link
+        document.getElementById('waLink').href = `https://wa.me/${CONFIG.phone}?text=Hello SparkPoint Support, I would like to inquire about your commercial cleaning services.`;
+
+        function dismissWidget() {
+            document.getElementById('whatsappWidget').style.display = 'none';
+        }
+
+        // Live Validation Logic
+        function validateForm() {
+            const name = document.getElementById('clientName').value.trim();
+            const email = document.getElementById('clientEmail').value.trim();
+            const address = document.getElementById('clientAddress').value.trim();
+            const service = document.getElementById('clientService').value;
+
+            const isStep1Valid = name !== "" && email.includes('@') && address !== "";
+            const isStep2Valid = isStep1Valid && service !== "";
+
+            // Toggle Step 1 Button
+            const btn1 = document.getElementById('btnStep1');
+            if (isStep1Valid) {
+                btn1.classList.remove('btn-disabled');
+            } else {
+                btn1.classList.add('btn-disabled');
+            }
+
+            // Toggle Final Submit Buttons
+            const waBtn = document.getElementById('submitWA');
+            const mailBtn = document.getElementById('submitEmail');
+            if (isStep2Valid) {
+                waBtn.classList.remove('btn-disabled');
+                mailBtn.classList.remove('btn-disabled');
+            } else {
+                waBtn.classList.add('btn-disabled');
+                mailBtn.classList.add('btn-disabled');
+            }
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.booking-step').forEach(s => {
+                s.classList.remove('active-step');
+                s.classList.add('hidden-step');
+            });
+            
+            document.getElementById(`step-${step}`).classList.replace('hidden-step', 'active-step');
+
+            for(let i=1; i<=2; i++) {
+                const prog = document.getElementById(`prog-${i}`);
+                if(i <= step) {
+                    prog.classList.replace('bg-white/10', 'bg-blue-600');
+                } else {
+                    prog.classList.replace('bg-blue-600', 'bg-white/10');
+                }
+            }
+            validateForm(); // Re-check on step change
+        }
+
+        function setFreq(val) {
+            CONFIG.selectedFreq = val;
+            document.querySelectorAll('.freq-btn').forEach(btn => {
+                btn.classList.replace('bg-blue-600', 'bg-white/5');
+            });
+            event.currentTarget.classList.replace('bg-white/5', 'bg-blue-600');
+        }
+
+        function submitBooking(method) {
+            const data = {
+                name: document.getElementById('clientName').value,
+                email: document.getElementById('clientEmail').value,
+                phone: document.getElementById('clientPhone').value,
+                zip: document.getElementById('clientZip').value,
+                address: document.getElementById('clientAddress').value,
+                service: document.getElementById('clientService').value,
+                size: document.getElementById('siteSize').value,
+                freq: CONFIG.selectedFreq,
+                notes: document.getElementById('clientNotes').value
+            };
+
+            const header = `*NEW QUOTE REQUEST: ${CONFIG.brand}*`;
+            const content = `${header}%0A%0A*--- Client Info ---*%0A*Name:* ${data.name}%0A*Phone:* ${data.phone}%0A*Email:* ${data.email}%0A*Address:* ${data.address}%0A*Zip Code:* ${data.zip}%0A%0A*--- Project Info ---*%0A*Service:* ${data.service}%0A*Site Size:* ${data.size}sqm%0A*Frequency:* ${data.freq}%0A*Notes:* ${data.notes}%0A%0A*Final pricing to be discussed with SparkPoint officials.*`;
+
+            if (method === 'whatsapp') {
+                window.open(`https://wa.me/${CONFIG.phone}?text=${content}`, '_blank');
+            } else {
+                const body = content.replace(/\*/g, '').replace(/%0A/g, '%0D%0A');
+                window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${CONFIG.email}&su=Quote Request: ${data.service}&body=${body}`, '_blank');
+            }
+
+            showModal("Consultation initiated. Our officials will review your request and contact you with a formal quote shortly.");
+        }
+
+        function showModal(text) {
+            const overlay = document.getElementById('modalOverlay');
+            document.getElementById('modalMsg').innerText = text;
+            overlay.classList.replace('hidden', 'flex');
+            setTimeout(() => overlay.querySelector('div').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.querySelector('div').classList.replace('scale-100', 'scale-95');
+            setTimeout(() => overlay.classList.replace('flex', 'hidden'), 200);
+        }
+    </script>
+</body>
+</html>
